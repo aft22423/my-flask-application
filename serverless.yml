@@ -1,0 +1,38 @@
+# serverless.yml
+
+service: serverless-flask
+
+plugins:
+  - serverless-python-requirements
+  - serverless-wsgi
+
+custom:
+  wsgi:
+    app: app.app
+    packRequirements: false
+  pythonRequirements:
+    dockerizePip: non-linux
+
+provider:
+  name: aws
+  runtime: python3.6
+  stage: dev
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - 's3:*'
+      Resource:
+        - 'arn:aws:s3:::tnc-asean-classreport-gen/*'
+    - Effect: Allow
+      Action:
+        - 'lambda:*'
+      Resource:
+        - 'arn:aws:lambda:us-east-1:888982305799:function:tnc-asean-CSAT-calc'
+
+functions:
+  app:
+    handler: wsgi_handler.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'

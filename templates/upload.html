@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+
+<form method="post" action="/dev/upload" enctype="multipart/form-data">
+	<h4>Class Type </h4>
+	<p>
+		<input type="radio" name="classtype" value="ILT" checked>
+		<label for="ILT">ILT</label>
+		<input type="radio" name="classtype" value="vILT">
+		<label for="vILT">vILT</label><br>
+	</p>
+    <dl>
+    	<h4>Total Attendees</h4>
+    	<input type="number" name="attendee" required><br>
+    	
+    	<h4>Please select feedback file (.csv)</h4>
+		<p>
+			<input type="file" name="file" autocomplete="off" required>
+		</p>
+    </dl>
+    <br>
+    <p>
+		<input type="submit" value="Submit">
+	</p>
+</form>
+
+<br><br>
+<p>Remark: This CSAT score calculation algorithm will be a bit different from Excel csat evaluation sheet in some cases</p>
+
+</div>
+{% endblock %}
+

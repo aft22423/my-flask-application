@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h3>Class Report – CUSTOMER COUNTRY_CODE CLASS DATE</h3>
+<br>
+<table style="width:1000px;border:1px solid black;border-collapse:collapse;text-align:left;">
+<tr>
+<th>Class Name:</th>
+<td>...........</td>
+<th>Class Location:</th>
+<td>...........</td>
+</tr>
+<tr>
+<th>Class Type:</th>
+<td>...........</td>
+<th>Trainer:</th>
+<td>...........</td>
+</tr>
+<tr>
+<th>Start Date:</th>
+<td>...........</td>
+<th>End Date:</th>
+<td>...........</td>
+</tr>
+</table>
+<h4>Key Points:</h4>
+<ul><li>...........</li></ul>
+<h4>Call to Action:</h4>
+<ul><li>...........</li></ul>
+<h4>Logistics Issues:</h4>
+<ul><li>...........</li></ul>
+<h4 style="display:inline">LMS ID: </h4>...........
+<br>
+
+<h4>Evaluation Summary : </h4>
+<p>{{result.Response}}/{{attendee}} repondents ({{ratio}}%)</p>
+<table style="width:400px;border:1px solid black;border-collapse:collapse;text-align:left;">
+<tr>
+<th>Classroom</th>
+<td>{{result.Classroom}}</td>
+<th>Content</th>
+<td>{{result.Content}}</td>
+</tr>
+<tr>
+<th>Instructor</th>
+<td>{{result.Instructor}}</td>
+<th>Overall Satisfaction</th>
+<td>{{result.OverallSatisfaction}}</td>
+</tr>
+</table>
+<br>
+
+<h4>Student Feedback : </h4>
+<ul>
+{% for message in result.AdditionalFeedback %}<li>{{ message }}</li>{% endfor %}
+</ul>  
+</p><br>
+<a href="/dev">Back</a>
+
+{% endblock %}
