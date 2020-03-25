@@ -23,12 +23,12 @@ provider:
       Action:
         - 's3:*'
       Resource:
-        - 'arn:aws:s3:::tnc-asean-classreport-gen/*'
+        - 'arn:aws:s3:::{{BUCKET_NAME}}/*'
     - Effect: Allow
       Action:
         - 'lambda:*'
       Resource:
-        - 'arn:aws:lambda:us-east-1:888982305799:function:tnc-asean-CSAT-calc'
+        - '{{LAMBDA_ARN}}'
 
 functions:
   app:
