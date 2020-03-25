@@ -15,9 +15,9 @@ UPLOAD_FOLDER = '/tmp'
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['SECRET_KEY'] = 'eifjccijuchftrjliegnvcldbcblbgienrgfuihkehdc'
-app.config['BUCKET_NAME'] = 'tnc-asean-classreport-gen'
-app.config['LAMBDA_NAME'] = 'tnc-asean-CSAT-calc'
+app.config['SECRET_KEY'] = '***YOUR_ANY_PREFERRED_KEY***'
+app.config['BUCKET_NAME'] = '***BUCKET_NAME***'
+app.config['LAMBDA_NAME'] = '***LAMBDA_NAME***'
 
 ALLOWED_EXTENSIONS = set(['csv'])
 
